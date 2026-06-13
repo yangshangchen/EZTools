@@ -7,10 +7,13 @@ build/
 dist/
 *.egg-info/
 
-# Build
-*.exe
-!工具包/*.exe
-
 # OS
 Thumbs.db
 .DS_Store
+
+# Large binaries (use GitHub Releases)
+*.exe
+*.jpg
+*.png
+!**/*.jpg
+!**/*.png
