@@ -1,4 +1,4 @@
-﻿# ⚡ 效率工具箱 EZTools
+# ⚡ 效率工具箱 EZTools
 
 > 🧰 8 款 Windows 本地效率工具 · 绿色免安装 · 源码开放
 
@@ -64,6 +64,15 @@ pyinstaller --onefile --windowed --name "CSV数据清洗工具" main.py
 
 ---
 
+
+## 📞 联系作者
+
+- 📱 微信: ysc06crush
+- 💬 QQ: 640251334
+- 🌐 GitHub: https://github.com/yangshangchen/EZTools
+
+---
+
 ## 📄 协议
 
 本项目源码采用 **MIT License** 开源，EXE 可自由分发。
@@ -78,3 +87,4 @@ pyinstaller --onefile --windowed --name "CSV数据清洗工具" main.py
 - **产品页:** https://eztools-616.netlify.app
 - **打赏页:** https://eztools-616.netlify.app/donate.html
 - **下载 Release:** https://github.com/yangshangchen/EZTools/releases/tag/v1.0.0
+
