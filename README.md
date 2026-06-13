@@ -30,8 +30,8 @@
 
 预编译 EXE 存放在 [`工具包/`](工具包/) 目录，下载后直接双击运行。
 
-**百度网盘：** [链接待补充]
-**123云盘：** [链接待补充]
+**百度网盘：** https://github.com/yangshangchen/EZTools/releases/tag/v1.0.0
+**123云盘：** https://github.com/yangshangchen/EZTools/releases/tag/v1.0.0
 
 ---
 
@@ -60,7 +60,7 @@ pyinstaller --onefile --windowed --name "CSV数据清洗工具" main.py
 
 如果这些工具帮到了你，欢迎请作者喝杯咖啡 ☕
 
-微信 / 支付宝：[收款码待放置]
+微信 / 支付宝：[详见 打赏页.html 或 https://eztools-616.netlify.app/donate.html]
 
 ---
 
@@ -69,3 +69,12 @@ pyinstaller --onefile --windowed --name "CSV数据清洗工具" main.py
 本项目源码采用 **MIT License** 开源，EXE 可自由分发。
 
 `SPDX-License-Identifier: MIT`
+
+---
+
+## 🌐 在线资源
+
+- **GitHub 仓库:** https://github.com/yangshangchen/EZTools
+- **产品页:** https://eztools-616.netlify.app
+- **打赏页:** https://eztools-616.netlify.app/donate.html
+- **下载 Release:** https://github.com/yangshangchen/EZTools/releases/tag/v1.0.0
