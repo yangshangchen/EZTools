@@ -1,0 +1,613 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>效率工具包 Pro — 8合1 Windows 生产力工具集</title>
+<style>
+:root {
+    --primary: #0078D4;
+    --primary-hover: #106EBE;
+    --primary-active: #005A9E;
+    --success: #2E7D32;
+    --warning: #E65100;
+    --bg: #FFFFFF;
+    --text: #000000;
+    --text-secondary: #333333;
+    --border: #CCCCCC;
+    --card-bg: #FFFFFF;
+    --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --max-w: 1200px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14pt;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+.header {
+    background: var(--bg);
+    border-bottom: 3px solid var(--primary);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.logo { font-size: 28pt; font-weight: 900; color: var(--text); }
+.logo span { color: var(--primary); }
+.header-cta {
+    background: var(--primary);
+    color: #FFF;
+    border: none;
+    padding: 12px 32px;
+    font-size: 16pt;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.header-cta:hover { background: var(--primary-hover); }
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 80px 0 60px;
+    background: linear-gradient(180deg, #F0F8FF 0%, #FFFFFF 100%);
+}
+.hero h1 {
+    font-size: 42pt;
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+.hero .subtitle {
+    font-size: 18pt;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 32px;
+}
+.hero .stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 40px;
+}
+.stat-item { text-align: center; }
+.stat-number { font-size: 36pt; font-weight: 900; color: var(--primary); }
+.stat-label { font-size: 14pt; color: var(--text-secondary); margin-top: 4px; }
+.hero-cta {
+    display: inline-block;
+    background: var(--primary);
+    color: #FFF;
+    font-size: 20pt;
+    font-weight: 700;
+    padding: 16px 48px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+.hero-cta:hover { background: var(--primary-hover); transform: translateY(-2px); }
+.hero-cta small { display: block; font-size: 12pt; font-weight: 400; opacity: 0.9; margin-top: 4px; }
+
+/* Section */
+.section { padding: 64px 0; }
+.section-title {
+    font-size: 28pt;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 12px;
+}
+.section-desc {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 16pt;
+    max-width: 640px;
+    margin: 0 auto 48px;
+}
+
+/* Tool Card Grid */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+}
+.tool-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+.tool-card:hover { border-color: var(--primary); box-shadow: var(--card-shadow); }
+.tool-card .badge {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    background: var(--primary);
+    color: #FFF;
+    font-size: 12pt;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+.tool-card .badge.pro { background: var(--success); }
+.tool-card .icon {
+    font-size: 36pt;
+    margin-bottom: 12px;
+}
+.tool-card h3 { font-size: 20pt; font-weight: 800; margin-bottom: 8px; }
+.tool-card p { color: var(--text-secondary); font-size: 14pt; margin-bottom: 12px; line-height: 1.5; }
+.tool-card .features { list-style: none; padding: 0; }
+.tool-card .features li {
+    padding: 4px 0;
+    font-size: 13pt;
+    color: var(--text);
+}
+.tool-card .features li::before { content: "✓ "; color: var(--success); font-weight: 700; }
+.tool-card .size {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 12pt;
+    color: var(--text-secondary);
+    background: #F5F5F5;
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+/* Pricing */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.pricing-card {
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.pricing-card:hover { border-color: var(--primary); box-shadow: var(--card-shadow); }
+.pricing-card.featured {
+    border-color: var(--primary);
+    border-width: 3px;
+    position: relative;
+}
+.pricing-card.featured::before {
+    content: "推荐";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #FFF;
+    font-size: 12pt;
+    font-weight: 700;
+    padding: 4px 20px;
+    border-radius: 20px;
+}
+.pricing-card h3 { font-size: 22pt; font-weight: 800; margin-bottom: 8px; }
+.pricing-card .price { 
+    font-size: 36pt; font-weight: 900; color: var(--primary);
+    margin: 16px 0;
+}
+.pricing-card .price small { font-size: 14pt; font-weight: 400; color: var(--text-secondary); }
+.pricing-card ul { list-style: none; padding: 0; margin: 16px 0; text-align: left; }
+.pricing-card ul li { padding: 6px 0; font-size: 14pt; }
+.pricing-card ul li::before { content: "✓ "; color: var(--success); font-weight: 700; }
+.pricing-card .btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #FFF;
+    font-size: 16pt;
+    font-weight: 700;
+    padding: 12px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 16px;
+    transition: background 0.2s;
+}
+.pricing-card .btn:hover { background: var(--primary-hover); }
+.pricing-card .btn.outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+.pricing-card .btn.outline:hover { background: var(--primary); color: #FFF; }
+
+/* Comparison Table */
+.comparison {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14pt;
+    margin: 24px 0;
+}
+.comparison th, .comparison td {
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    text-align: center;
+}
+.comparison th {
+    background: #F0F8FF;
+    font-weight: 800;
+    font-size: 15pt;
+}
+.comparison td:first-child { text-align: left; font-weight: 600; }
+.comparison .yes { color: var(--success); font-size: 18pt; }
+.comparison .no { color: #999; font-size: 14pt; }
+
+/* CTA Banner */
+.cta-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, #005A9E 100%);
+    color: #FFF;
+    text-align: center;
+    padding: 64px 24px;
+    border-radius: 16px;
+    margin: 48px 0;
+}
+.cta-banner h2 { font-size: 32pt; font-weight: 900; margin-bottom: 12px; }
+.cta-banner p { font-size: 16pt; opacity: 0.95; margin-bottom: 24px; }
+.cta-banner .btn-white {
+    display: inline-block;
+    background: #FFF;
+    color: var(--primary);
+    font-size: 20pt;
+    font-weight: 700;
+    padding: 16px 48px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.1s;
+}
+.cta-banner .btn-white:hover { transform: translateY(-2px); }
+
+/* Footer */
+.footer {
+    border-top: 2px solid var(--border);
+    padding: 32px 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 12pt;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 28pt; }
+    .hero .stats { flex-direction: column; gap: 16px; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .comparison { font-size: 12pt; }
+    .comparison th, .comparison td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">⚡<span>效率工具包</span> Pro</div>
+        <a href="#pricing" class="header-cta">立即购买</a>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>8 款 Windows 效率工具<br>一次打包，永久使用</h1>
+        <p class="subtitle">从数据清洗到视频截图，从文件搜索到批量重命名——覆盖办公全场景的生产力工具箱。解压即用，无需任何配置。</p>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">精品工具</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">686</div>
+                <div class="stat-label">MB 总量</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">本地运行</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">免安装</div>
+                <div class="stat-label">解压即用</div>
+            </div>
+        </div>
+        <a href="#pricing" class="hero-cta">
+            获取工具包
+            <small>永久授权 · 免费更新</small>
+        </a>
+    </div>
+</section>
+
+<!-- Tools Section -->
+<section class="section" id="tools">
+    <div class="container">
+        <h2 class="section-title">📦 工具包内含 8 款工具</h2>
+        <p class="section-desc">每款工具均为独立 EXE，互不依赖，可按需单独使用</p>
+
+        <div class="tool-grid">
+
+            <div class="tool-card">
+                <div class="icon">📊</div>
+                <h3>CSV 数据清洗工具</h3>
+                <p>大数据量 CSV/Excel 格式互转、数据清洗、智能编码检测</p>
+                <ul class="features">
+                    <li>支持 CSV / Excel 格式互转</li>
+                    <li>去重、去空行、去缺失值</li>
+                    <li>关键词筛选（支持正则）</li>
+                    <li>自动检测编码和分隔符</li>
+                    <li>多线程并行处理，Numba 加速</li>
+                    <li>支持百万行级大文件</li>
+                </ul>
+                <span class="size">🖥 186 MB</span>
+            </div>
+
+            <div class="tool-card">
+                <span class="badge pro">Pro</span>
+                <div class="icon">🔍</div>
+                <h3>LightningSearch 闪电搜</h3>
+                <p>超高速本地文件搜索引擎，支持全盘扫描和分类筛选</p>
+                <ul class="features">
+                    <li>按文档/图片/视频/音频分类搜索</li>
+                    <li>Pro 版无结果数量限制</li>
+                    <li>搜索结果直接打开/复制路径</li>
+                    <li>Pro 版支持批量复制/重命名/删除</li>
+                    <li>Pro 版导出 CSV/Excel 报告</li>
+                    <li>Pro 版搜索历史 & 收藏夹</li>
+                </ul>
+                <span class="size">🖥 186 MB (Pro) · 36 MB (Free)</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon">📄</div>
+                <h3>PDF 工具箱</h3>
+                <p>PDF 合并、拆分、页面提取——三合一，本地处理不外传</p>
+                <ul class="features">
+                    <li>多 PDF 合并为一个</li>
+                    <li>按页拆分 PDF 为单页文件</li>
+                    <li>指定页码范围提取 PDF</li>
+                    <li>支持加密 PDF（需密码）</li>
+                    <li>后台处理，不卡界面</li>
+                    <li>完全本地离线运行</li>
+                </ul>
+                <span class="size">🖥 59 MB</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon">🖼️</div>
+                <h3>图片批量压缩工具</h3>
+                <p>批量压缩图片大小，可调节压缩质量，支持导出 ZIP</p>
+                <ul class="features">
+                    <li>支持 JPG / PNG / WebP / BMP</li>
+                    <li>可调节压缩质量（1-100）</li>
+                    <li>实时预览压缩前后大小对比</li>
+                    <li>一键导出 ZIP 压缩包</li>
+                    <li>拖拽添加或批量添加</li>
+                    <li>中文字符完美支持</li>
+                </ul>
+                <span class="size">🖥 56 MB</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon">✏️</div>
+                <h3>批量重命名工具</h3>
+                <p>功能强大的文件批量重命名，支持撤销操作</p>
+                <ul class="features">
+                    <li>添加前缀/后缀重命名</li>
+                    <li>序号编号（可设起始/位数）</li>
+                    <li>查找替换（支持正则）</li>
+                    <li>日期前缀重命名</li>
+                    <li>删除指定位置字符</li>
+                    <li><strong>支持一键撤销</strong> + 日志导出</li>
+                </ul>
+                <span class="size">🖥 35 MB</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon">🔄</div>
+                <h3>文件夹同步备份工具</h3>
+                <p>文件夹镜像/增量同步，MD5 文件校验，可生成计划任务</p>
+                <ul class="features">
+                    <li>支持镜像同步 & 增量同步</li>
+                    <li>MD5 文件完整性校验</li>
+                    <li>排除指定文件夹/扩展名</li>
+                    <li>模拟预览同步操作</li>
+                    <li>一键生成定时任务脚本</li>
+                    <li>彩色状态日志输出</li>
+                </ul>
+                <span class="size">🖥 35 MB</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon">🎬</div>
+                <h3>视频截图工具</h3>
+                <p>播放视频并截取任意帧，支持水印叠加</p>
+                <ul class="features">
+                    <li>上传视频后预览播放</li>
+                    <li>滑块拖拽或自动播放选帧</li>
+                    <li>自定义文字水印（右下角）</li>
+                    <li>一键保存为 PNG 高清图</li>
+                    <li>自动命名带时间戳</li>
+                    <li><strong>纯白高对比度 UI</strong></li>
+                </ul>
+                <span class="size">🖥 93 MB</span>
+            </div>
+
+            <div class="tool-card">
+                <span class="badge">Free</span>
+                <div class="icon">🔍</div>
+                <h3>LightningSearch 闪电搜 Free</h3>
+                <p>免费版本地文件搜索，日常找文件足够用</p>
+                <ul class="features">
+                    <li>按文档/图片/视频分类搜索</li>
+                    <li>最大 100 条搜索结果</li>
+                    <li>双击打开文件</li>
+                    <li>右键复制路径</li>
+                    <li>快速扫描桌面/文档/下载</li>
+                    <li>即开即用，轻量 36MB</li>
+                </ul>
+                <span class="size">🖥 36 MB · 免费</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Free vs Pro Comparison -->
+<section class="section" style="background:#F0F8FF;">
+    <div class="container">
+        <h2 class="section-title">🔍 LightningSearch Free vs Pro</h2>
+        <p class="section-desc">免费版日常够用，Pro 版为重度用户设计</p>
+        <div style="overflow-x:auto;">
+            <table class="comparison">
+                <thead>
+                    <tr>
+                        <th>功能</th>
+                        <th>Free 版</th>
+                        <th>Pro 版</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>按分类搜索</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                    <tr><td>搜索结果上限</td><td>100 条</td><td class="yes">无限制</td></tr>
+                    <tr><td>打开 / 复制路径</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                    <tr><td>批量复制</td><td class="no">✗</td><td class="yes">✓</td></tr>
+                    <tr><td>批量重命名</td><td class="no">✗</td><td class="yes">✓</td></tr>
+                    <tr><td>批量删除</td><td class="no">✗</td><td class="yes">✓</td></tr>
+                    <tr><td>导出 CSV / Excel</td><td class="no">✗</td><td class="yes">✓</td></tr>
+                    <tr><td>搜索历史</td><td class="no">✗</td><td class="yes">✓</td></tr>
+                    <tr><td>收藏夹</td><td class="no">✗</td><td class="yes">✓</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing">
+    <div class="container">
+        <h2 class="section-title">💰 定价方案</h2>
+        <p class="section-desc">永久授权，一次付费终身使用，免费获取更新</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Free 免费版</h3>
+                <div class="price">¥0 <small>永久免费</small></div>
+                <ul>
+                    <li>LightningSearch Free</li>
+                    <li>100 条搜索结果</li>
+                    <li>基础搜索功能</li>
+                    <li>社区支持</li>
+                </ul>
+                <a href="#" class="btn outline" onclick="alert('联系作者获取免费版')">获取免费版</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <h3>🔥 工具包 Pro</h3>
+                <div class="price">¥49 <small>永久</small></div>
+                <ul>
+                    <li><strong>全部 8 款工具</strong></li>
+                    <li>CSV 数据清洗工具</li>
+                    <li>LightningSearch Pro 无限制</li>
+                    <li>PDF 工具箱</li>
+                    <li>图片批量压缩工具</li>
+                    <li>批量重命名工具</li>
+                    <li>文件夹同步备份工具</li>
+                    <li>视频截图工具</li>
+                    <li>LightningSearch Free</li>
+                    <li>永久免费更新</li>
+                    <li>邮件技术支持</li>
+                </ul>
+                <a href="#" class="btn" onclick="alert('请联系作者购买\n微信/QQ: [填写您的联系方式]')">立即购买 ¥49</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>商业授权</h3>
+                <div class="price">¥199 <small>永久</small></div>
+                <ul>
+                    <li>包含工具包 Pro 全部工具</li>
+                    <li>允许公司内部部署</li>
+                    <li>允许商用（5台以内）</li>
+                    <li>优先技术支持</li>
+                    <li>可定制工具需求</li>
+                </ul>
+                <a href="#" class="btn outline" onclick="alert('请联系作者获取商业授权\n微信/QQ: [填写您的联系方式]')">联系购买</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+    <div class="container">
+        <div class="cta-banner">
+            <h2>立即提升您的办公效率</h2>
+            <p>8 款工具 = 8 个生产力放大器，价格不到一杯咖啡</p>
+            <a href="#" class="btn-white" onclick="alert('请联系作者购买\n微信/QQ: [填写您的联系方式]\n或邮件: [填写您的邮箱]')">💰 立即购买 ¥49</a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">❓ 常见问题</h2>
+        <div style="max-width:720px;margin:0 auto;">
+            <div style="margin-bottom:24px;">
+                <h3 style="font-size:18pt;font-weight:700;margin-bottom:8px;">这些工具安全吗？</h3>
+                <p style="color:var(--text-secondary);font-size:14pt;">完全安全。所有工具均为本地运行，不联网不上传任何数据。源码可审查，无后门无病毒。</p>
+            </div>
+            <div style="margin-bottom:24px;">
+                <h3 style="font-size:18pt;font-weight:700;margin-bottom:8px;">需要安装 Python 或其他环境吗？</h3>
+                <p style="color:var(--text-secondary);font-size:14pt;">完全不需要。每款工具都是绿色 EXE，下载后直接双击即可运行，无需任何配置。</p>
+            </div>
+            <div style="margin-bottom:24px;">
+                <h3 style="font-size:18pt;font-weight:700;margin-bottom:8px;">支持哪些 Windows 版本？</h3>
+                <p style="color:var(--text-secondary);font-size:14pt;">Windows 10 1903 及以上版本，包含 Windows 11。不支持 Windows 7。</p>
+            </div>
+            <div style="margin-bottom:24px;">
+                <h3 style="font-size:18pt;font-weight:700;margin-bottom:8px;">购买后如何获取更新？</h3>
+                <p style="color:var(--text-secondary);font-size:14pt;">购买后加入用户群，新版本发布时统一在群内通知，免费下载更新。</p>
+            </div>
+            <div>
+                <h3 style="font-size:18pt;font-weight:700;margin-bottom:8px;">如何联系作者？</h3>
+                <p style="color:var(--text-secondary);font-size:14pt;">微信/QQ: [填写您的联系方式]<br>邮箱: [填写您的邮箱]</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 效率工具包 Pro · 保留所有权利</p>
+        <p style="margin-top:8px;">所有工具均为绿色免安装版 · 如遇杀软误报请添加信任即可</p>
+    </div>
+</footer>
+
+</body>
+</html>

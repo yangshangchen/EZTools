@@ -1,0 +1,4 @@
+﻿PyQt5>=5.15
+qrcode>=7.4
+Pillow>=10.0
+opencv-python-headless>=4.8

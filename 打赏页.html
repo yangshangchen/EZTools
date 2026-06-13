@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>☕ 请作者喝杯咖啡 — 效率工具箱 EZTools</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    background: #FFFFFF;
+    color: #000000;
+    font-size: 14pt;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    max-width: 520px;
+    padding: 48px 40px;
+    text-align: center;
+    border: 2px solid #CCCCCC;
+    border-radius: 16px;
+    margin: 24px;
+}
+h1 { font-size: 28pt; font-weight: 900; margin-bottom: 8px; }
+.subtitle { color: #333333; font-size: 16pt; margin-bottom: 32px; }
+.qr-placeholder {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto 24px;
+    border: 3px dashed #CCCCCC;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #333333;
+    font-size: 16pt;
+}
+.qr-placeholder small { font-size: 12pt; margin-top: 8px; color: #666; }
+.price { font-size: 18pt; font-weight: 700; color: #0078D4; margin-bottom: 8px; }
+.desc { color: #333333; font-size: 14pt; margin-bottom: 24px; }
+.thanks { margin-top: 24px; padding-top: 24px; border-top: 1px solid #CCCCCC; color: #666; font-size: 12pt; }
+.btn-back {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 24px;
+    background: #0078D4;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14pt;
+    font-weight: 700;
+}
+.btn-back:hover { background: #106EBE; }
+</style>
+</head>
+<body>
+<div class="card">
+    <h1>☕ 请作者喝杯咖啡</h1>
+    <p class="subtitle">如果这些工具帮到了你，欢迎随意打赏</p>
+
+        <img src="wechat_qr.png" alt="微信收款码"
+         style="width:240px;height:240px;border-radius:12px;border:2px solid #CCC;margin:0 auto 24px;display:block;object-fit:contain;">
+
+        <img src="alipay_qr.png" alt="支付宝收款码"
+         style="width:240px;height:240px;border-radius:12px;border:2px solid #CCC;margin:0 auto 24px;display:block;object-fit:contain;">
+
+    <p class="price">金额随意 · 心意无价</p>
+    <p class="desc">打赏后可在微信/QQ群获取优先技术支持</p>
+
+    <div class="thanks">
+        <p>感谢每一位支持者 ❤️</p>
+        <p style="margin-top:8px;">所有收入将用于工具维护和功能更新</p>
+    </div>
+
+    <a href="README.md" class="btn-back">← 返回项目页</a>
+</div>
+</body>
+</html>
+
